@@ -24,4 +24,26 @@ if ($action == "add"){
 	
 }
 
+// Supprime un auteur dans le fichier
+if ($action == "delete"){
+	
+	$auteur = isset($_POST['auteur']) ? stripslashes($_POST['auteur']) : '';
+	$nouvelle_liste = array();
+	
+	$lines = file('../auteurs.txt');
+	foreach ($lines as $line){
+		$line = trim($line);
+		if ($line != $auteur){
+			array_push($nouvelle_liste, $line);
+		}
+	}
+	
+	$fp = fopen("../auteurs.txt","w");
+	foreach ($nouvelle_liste as $auteur){
+		fputs($fp, $auteur."\n");	
+	}
+	fclose($fp);
+	
+}
+
 ?>

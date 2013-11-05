@@ -30,7 +30,7 @@
                 			$('#ul_auteurs_liste').empty();
                 			
                 			for (var i = 0; i < data.length; i++) {
-                				$('#ul_auteurs_liste').append('<li><a href="" data-transition="slidedown"><h3>'+data[i]+'</h3></a></li>');   
+                				$('#ul_auteurs_liste').append('<li><a href="livres.php?auteur='+data[i]+'" data-transition="slide"><h3>'+data[i]+'</h3></a></li>');   
                 			}
                 			
                 			$('#ul_auteurs_liste').listview('refresh');
@@ -69,7 +69,7 @@
 				<!-- AJOUTER UN AUTEUR -->
 				<div class="ui-grid-a" style="padding-left: 10px;padding-right: 10px;">
 					<div class="ui-block-a" style="width:90%"><input type="text" id="ajouter_auteur_champ" placeholder="Entrez le nom d'un auteur..." /></div>
-					<div class="ui-block-b" style="width:10%"><a href="" id="ajouter_auteur_bouton" data-role="button" data-icon="plus" data-theme="a">Ajouter</a></div>
+					<div class="ui-block-b" style="width:10%"><a href="" id="ajouter_auteur_bouton" data-role="button" data-icon="plus" data-theme="a">Add</a></div>
 				</div>
 			</div>
  			
