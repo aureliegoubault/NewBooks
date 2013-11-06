@@ -22,9 +22,10 @@
 
 				$("#livres").on('pageshow', function(){
 
+					var auteur = '<?php echo $_GET['auteur']; ?>';
+
 					// SUPPRESSION D'UN AUTEUR
                     $("#supprimer_auteur_bouton").click(function(e) {
-                        var auteur = '<?php echo $_GET['auteur']; ?>';
                     	$.ajax({
                             url: 'ajax/auteurs.php?action=delete',
                             type: 'POST',
@@ -33,6 +34,30 @@
                             	$.mobile.changePage("index.php", { transition: "slide", reverse: true });
                             }
                         });
+                    });
+
+                 	// RECUPERATION DES NOUVEAUTES VIA AMAZON
+                    $.ajax({
+                        url: 'ajax/livres.php?action=get_new&auteur='+auteur,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                        	for (var i = 0; i < data.length; i++) {
+                        		$("#ul_livres_nouveaute_liste").append('<li><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</li>'); 
+                        	}
+                        }
+                    });
+
+					// RECUPERATION DES LIVRES A PARAITRE VIA AMAZON
+                    $.ajax({
+                        url: 'ajax/livres.php?action=get_all&auteur='+auteur,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                        	for (var i = 0; i < data.length; i++) {
+                        		$("#ul_livres_paraitre_liste").append('<li><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</li>'); 
+                        	}
+                        }
                     });
 
 				});
@@ -48,7 +73,10 @@
  			
  			<!-- LISTE DES NOUVEAUTES ET LIVRES A PARAITRE -->
 			<div data-role="content">
-				
+				<h3>NOUVEAUTES</h3>
+				<ul id="ul_livres_nouveaute_liste" data-role="listview" data-inset="true" ></ul>
+				<h3>A PARAITRE</h3>
+				<ul id="ul_livres_paraitre_liste" data-role="listview" data-inset="true" ></ul>
 			</div>
 		 
 		</div>
