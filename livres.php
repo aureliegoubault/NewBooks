@@ -8,6 +8,8 @@
 		<!-- IMPORTS -->
 		<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.2.css" />
  		<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+ 		<link rel="stylesheet" href="css/index.css" />
+ 		<link rel="stylesheet" href="css/livres.css" />
  
 		<script src="js/jquery-2.0.2.min.js"></script>
 		<script src="js/jquery.mobile-1.3.2.min.js"></script>
@@ -20,7 +22,7 @@
 			<!-- SCRIPT JAVASCRIPT -->
 			<script type="text/javascript">
 
-				$("#livres").on('pageshow', function(){
+				$("#livres").on('pageinit', function(){
 
 					var auteur = '<?php echo $_GET['auteur']; ?>';
 
@@ -43,7 +45,15 @@
                         dataType: 'json',
                         success: function (data) {
                         	for (var i = 0; i < data.length; i++) {
-                        		$("#ul_livres_nouveaute_liste").append('<li><div style="background-color: white;"><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</div></li>'); 
+                        		$("#ul_livres_nouveaute_liste").append('<li style="background-color: white;">\n\
+                                        <table><tr><td>\n\
+                                            <img src="'+data[i].image+'"/>\n\
+                                        </td>\n\
+                                        <td>\n\
+                                        <h4 style="color: dark gray;">'+data[i].titre+'</h4>\n\
+                                        <p>'+data[i].auteur+'</p>\n\
+                                        </td></tr></table>\n\
+                                    </li>'); 
                         	}
                         }
                     });
@@ -55,7 +65,15 @@
                         dataType: 'json',
                         success: function (data) {
                         	for (var i = 0; i < data.length; i++) {
-                        		$("#ul_livres_paraitre_liste").append('<li><div style="background-color: white;"><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</div></li>'); 
+                        		$("#ul_livres_paraitre_liste").append('<li style="background-color: white;">\n\
+                                        <table><tr><td>\n\
+                                            <img src="'+data[i].image+'"/>\n\
+                                        </td>\n\
+                                        <td>\n\
+                                        <h4 style="color: dark gray;">'+data[i].titre+'</h4>\n\
+                                        <p>'+data[i].auteur+'</p>\n\
+                                        </td></tr></table>\n\
+                                    </li>'); 
                         	}
                         }
                     });
@@ -73,10 +91,13 @@
  			
  			<!-- LISTE DES NOUVEAUTES ET LIVRES A PARAITRE -->
 			<div data-role="content">
-				<h3>NOUVEAUTES</h3>
-				<ul id="ul_livres_nouveaute_liste" data-role="listview" data-inset="true" ></ul>
-				<h3>A PARAITRE</h3>
-				<ul id="ul_livres_paraitre_liste" data-role="listview" data-inset="true" ></ul>
+				<ul id="ul_livres_nouveaute_liste" data-role="listview" data-inset="true" >
+					<li data-role="list-divider">NOUVEAUTES</li>
+				</ul>
+				
+				<ul id="ul_livres_paraitre_liste" data-role="listview" data-inset="true" >
+					<li data-role="list-divider">A PARAITRE</li>
+				</ul>
 			</div>
 		 
 		</div>

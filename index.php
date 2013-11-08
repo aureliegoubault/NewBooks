@@ -8,7 +8,7 @@
 		<!-- IMPORTS -->
 		<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.2.css" />
  		<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
- 		<link rel="stylesheet" href="css/styles.css" />
+ 		<link rel="stylesheet" href="css/index.css" />
  
 		<script src="js/jquery-2.0.2.min.js"></script>
 		<script src="js/jquery.mobile-1.3.2.min.js"></script>
