@@ -8,7 +8,9 @@ if ($action == "get_all"){
 	$liste_auteurs = array();
 	$lines = file('../auteurs.txt');
 	foreach ($lines as $auteur){
-		array_push($liste_auteurs, $auteur);
+		if(strlen(trim($auteur))){
+			array_push($liste_auteurs, $auteur);
+		}
 	}
 	echo json_encode($liste_auteurs);
 	
