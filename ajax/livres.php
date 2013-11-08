@@ -24,7 +24,7 @@ if ($action == "get_new"){
 	
 	$livres = array();
 	
-	$nouveaute_url = get_data('http://www.amazon.fr/s/ref=sr_nr_p_n_publication_date_1?rh=n%3A301061%2Ck%3A'.$auteur_search.'%2Cp_n_publication_date%3A183197031&keywords='.$auteur_search.'&ie=UTF8&qid=1383734563&rnid=183195031');
+	$nouveaute_url = get_data('http://www.amazon.fr/s/ref=sr_hi_eb?rh=n%3A301061%2Cp_n_publication_date%3A183197031%2Cp_lbr_books_authors_browse-bin%3A'.$auteur_search.'&ie=UTF8&qid=1383735919');
 	$nouveaute_html = str_get_html($nouveaute_url);
 	
 	$results_div = $nouveaute_html->getElementById("atfResults");
@@ -56,7 +56,7 @@ if ($action == "get_all"){
 	
 	$livres = array();
 	
-	$nouveaute_url = get_data('http://www.amazon.fr/s/ref=sr_nr_p_n_publication_date_2?rh=n%3A301061%2Ck%3A'.$auteur_search.'%2Cp_n_publication_date%3A183198031&keywords='.$auteur_search.'&ie=UTF8&qid=1383690571&rnid=183195031');
+	$nouveaute_url = get_data('http://www.amazon.fr/s/ref=sr_nr_p_n_publication_date_2?rh=n%3A301061%2Cp_lbr_books_authors_browse-bin%3A'.$auteur_search.'%2Cp_n_publication_date%3A183198031&bbn=301061&ie=UTF8&qid=1383735941&rnid=183195031');
 	$nouveaute_html = str_get_html($nouveaute_url);
 	
 	$results_div = $nouveaute_html->getElementById("atfResults");

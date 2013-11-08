@@ -43,7 +43,7 @@
                         dataType: 'json',
                         success: function (data) {
                         	for (var i = 0; i < data.length; i++) {
-                        		$("#ul_livres_nouveaute_liste").append('<li><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</li>'); 
+                        		$("#ul_livres_nouveaute_liste").append('<li><div style="background-color: white;"><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</div></li>'); 
                         	}
                         }
                     });
@@ -55,7 +55,7 @@
                         dataType: 'json',
                         success: function (data) {
                         	for (var i = 0; i < data.length; i++) {
-                        		$("#ul_livres_paraitre_liste").append('<li><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</li>'); 
+                        		$("#ul_livres_paraitre_liste").append('<li><div style="background-color: white;"><img src="'+data[i].image+'" />'+data[i].titre+'////'+data[i].auteur+'</div></li>'); 
                         	}
                         }
                     });

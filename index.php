@@ -38,7 +38,7 @@
                     });
 				}
         
-                $("#home").on('pageshow', function(){
+                $("#home").on('pageinit', function(){
 
                 	// RECUPERATION DE LA LISTE D'AUTEURS
                 	get_author_list();
