@@ -83,9 +83,9 @@
 			<div data-role="footer" class="footbar" data-theme="b" data-position="fixed">   
 				<div data-role="navbar" class="footbar">
 					<ul>
-						<li><a href="" id="auteur" data-icon="custom">Auteurs</a></li>
-						<li><a href="" id="nouveautes" data-icon="grid">Nouveautes</a></li>
-						<li><a href="" id="paraitre" data-icon="grid">A paraitre</a></li>
+						<li><a href="index.php" id="auteur" data-icon="custom">Auteurs</a></li>
+						<li><a href="nouveautes.php" id="nouveautes" data-icon="custom">Nouveautes</a></li>
+						<li><a href="paraitre.php" id="paraitre" data-icon="custom">A paraitre</a></li>
 					</ul>
 				</div>
 			</div> 
