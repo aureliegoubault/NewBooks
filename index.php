@@ -41,6 +41,12 @@
         
                 $("#home").on('pageinit', function(){
 
+					// On teste si on est bien sur index.php => sinon problème sur appel Ajax sur bouton HOME
+                	var currentLocation =  document.location.href;
+                	if (currentLocation.split("/").pop() !== "index.php") {
+                		window.location = "index.php";
+                	}
+                		
                 	// RECUPERATION DE LA LISTE D'AUTEURS
                 	get_author_list();
 
@@ -59,6 +65,10 @@
                         });
                     });
                 	
+                });
+
+                $("#home").on('pageshow', function(){
+                	get_author_list();
                 });
 
             </script>
