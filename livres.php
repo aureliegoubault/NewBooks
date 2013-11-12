@@ -13,78 +13,19 @@
  
 		<script src="js/jquery-2.0.2.min.js"></script>
 		<script src="js/jquery.mobile-1.3.2.min.js"></script>
+		
+		
 	</head>
 	
 	<body>
 	
 		<div data-role="page" id="livres">
 		
-			<!-- SCRIPT JAVASCRIPT -->
-			<script type="text/javascript">
-
-				$("#livres").on('pageinit', function(){
-
-					var auteur = '<?php echo $_GET['auteur']; ?>';
-
-					// SUPPRESSION D'UN AUTEUR
-                    $("#supprimer_auteur_bouton").click(function(e) {
-                    	$.ajax({
-                            url: 'ajax/auteurs.php?action=delete',
-                            type: 'POST',
-                            data: { auteur: auteur },
-                            success: function (data) {
-                            	$.mobile.changePage("index.php", { transition: "slide", reverse: true });
-                            }
-                        });
-                    });
-
-                 	// RECUPERATION DES NOUVEAUTES VIA AMAZON
-                    $.ajax({
-                        url: 'ajax/livres.php?action=get_new&auteur='+auteur,
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function (data) {
-                        	for (var i = 0; i < data.length; i++) {
-                        		$("#ul_livres_nouveaute_liste").append('<li style="background-color: white;">\n\
-                                        <table><tr><td>\n\
-                                            <img src="'+data[i].image+'"/>\n\
-                                        </td>\n\
-                                        <td>\n\
-                                        <h4 style="color: dark gray;">'+data[i].titre+'</h4>\n\
-                                        <p>'+data[i].auteur+'</p>\n\
-                                        </td></tr></table>\n\
-                                    </li>'); 
-                        	}
-                        }
-                    });
-
-					// RECUPERATION DES LIVRES A PARAITRE VIA AMAZON
-                    $.ajax({
-                        url: 'ajax/livres.php?action=get_all&auteur='+auteur,
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function (data) {
-                        	for (var i = 0; i < data.length; i++) {
-                        		$("#ul_livres_paraitre_liste").append('<li style="background-color: white;">\n\
-                                        <table><tr><td>\n\
-                                            <img src="'+data[i].image+'"/>\n\
-                                        </td>\n\
-                                        <td>\n\
-                                        <h4 style="color: dark gray;">'+data[i].titre+'</h4>\n\
-                                        <p>'+data[i].auteur+'</p>\n\
-                                        </td></tr></table>\n\
-                                    </li>'); 
-                        	}
-                        }
-                    });
-
-				});
-
-			</script>
+			<script src="js/livres.js"></script>
 		
 			<!-- HEADER -->
 			<div data-role="header" data-theme="b">   
-				<a href="index.php" data-role="button" data-icon="home" data-transition="slide" data-direction="reverse" data-theme="a" >Home</a>   
+				<a href="index.html" data-role="button" data-icon="home" data-transition="slide" data-direction="reverse" data-theme="a" >Home</a>   
 				<h1><?php echo $_GET['auteur']; ?></h1>
 				<a href="" id="supprimer_auteur_bouton" data-role="button" data-icon="delete" data-theme="a">Delete</a>   
 			</div>
